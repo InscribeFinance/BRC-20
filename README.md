@@ -8,6 +8,8 @@ Improvements can be proposed by anyone and reviewed by the entire participating 
 The community will choose which administrators have the ability to approve or reject a pull request.
 Below you will find the original document from @domodata.
 
+Also having this repository will make software update more simple for BRC-20 services providers
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This is just a fun experimental standard demonstrating that you can create off-chain balance states with inscriptions. It by no means should be considered THE standard for fungibility on bitcoin with ordinals, as I believe there are almost certainly better design choices and optimization improvements to be made. Consequently, this is an extremely dynamic experiment, and I strongly discourage any financial decisions to be made on the basis of it's design. I do, however, encourage the bitcoin community to tinker with standard designs and optimizations until a general consensus on best practices is met (or to decide that this is a bad idea altogether!).
