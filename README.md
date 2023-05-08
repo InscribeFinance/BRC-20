@@ -97,3 +97,73 @@ A valid transfer function is required to transfer a balance. Validity can be det
 <h2>Operations</h2>
 
 As I mentioned above, this is just my fun experimental standard design. I welcome anyone to improve upon the design, rules, or compression issues it poses. For traceability json {} are required, as well as the minimum required information to satisfy one of the functions.
+
+<h3>Deploy brc-20</h3>
+
+ordi used for demo purposes in the docs. It has already reached its max supply.
+
+{ 
+  "p": "brc-20",
+  
+  "op": "deploy",
+  
+  "tick": "ordi",
+  
+  "max": "21000000",
+  
+  "lim": "1000"
+}
+
+| Key | Required | Description |
+| --- | -------- | ------------|
+| p   | Yes      |  Protocol: Helps other systems identify and process brc-20 events|
+| op  | Yes      |  Operation: Type of event (Deploy, Mint, Transfer)|
+|tick | Yes      |  Ticker: 4 letter identifier of the brc-20|
+| max | Yes      |  Max supply: set max supply of the brc-20|
+| lim | No       |  Mint limit: If letting users mint to themsleves, limit per ordinal|
+| dec | No       |  Decimals: set decimal precision, default to 18|
+
+
+<h3>Mint brc-20</h3>
+
+Careful if using inscription service. Some tools inscribe to themselves first then forward it to the customer (thus the intermediate inscription service owned address keeps the balance)
+
+{
+  "p": "brc-20",
+  
+  "op": "mint",
+  
+  "tick": "ordi",
+  
+  "amt": "1000",
+}
+
+| Key | Required | Description |
+| --- | -------- | ------------|
+| p   | Yes      | Protocol: Helps other systems identify and process brc-20 events|
+| op  | Yes      | Operation: Type of event (Deploy, Mint, Transfer)|
+|tick | Yes      | Ticker: 4 letter identifier of the brc-20|
+| amt | Yes      | Amount to mint: States the amount of the brc-20 to mint. Has to be less than "lim" above if stated|
+
+<h3>Transfer brc-20</h3>
+
+Careful if using inscription service. Some tools inscribe to themselves first then forward it to the customer (thus because the intermediate inscription service owned address has no balance and the transfer function is wasted). Some ordinal wallets generate a different address each time, make sure to send to the address that holds the balance. 
+
+{
+  "p": "brc-20",
+  
+  "op": "transfer",
+  
+  "tick": "ordi",
+  
+  "amt": "100",
+}
+
+| Key | Required | Description |
+| --- | -------- | ------------|
+| p   | Yes      | Protocol: Helps other systems identify and process brc-20 events|
+| op  | Yes      | Operation: Type of event (Deploy, Mint, Transfer)|
+|tick | Yes      | Ticker: 4 letter identifier of the brc-20|
+| amt | Yes      | Amount to mint: States the amount of the brc-20 to mint. Has to be less than "lim" above if stated|
+|<strike>to</strike>|<strike>No</strike>|<strike> Address to send to: States the receiving address. If left blank logic will presume that the receiver of the transfer is correct</strike>|
+|<strike> fee</strike> | <strike>No</strike>| <strike>Transfer fee: For tracking without taproot data purposes only</strike>|
