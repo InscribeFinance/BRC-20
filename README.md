@@ -8,7 +8,7 @@ Improvements can be proposed by anyone and reviewed by the entire participating 
 The community will choose which administrators have the ability to approve or reject a pull request.
 Below you will find the original document from @domodata.
 
-Also having this repository will make software update more simple for BRC-20 services providers
+Also having this repository will make software update more simple for BRC-20 services providers.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
